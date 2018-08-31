@@ -1,10 +1,11 @@
 {% set name = "xnat" %}
-{% set version = "0.3.9" %}
-{% set sha256 = "79c0af5a1e1a3e2029e7bbb85b0cebcc4914b7972af1096f682ca365af882a47" %}
+{% set version = "0.3.10" %}
+{% set sha256 = "c12a746a76b0c4e86bf21a58c38ff051d87a9cd4add7d352e18238b020aa3888" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
+
 
 source:
   fn: {{ name }}-{{ version }}.tar.gz
@@ -15,23 +16,39 @@ build:
   noarch: python
   number: 0
   script: python -m pip install --no-deps --ignore-installed .
+  entry_points:
+    - xnat_cp_project = xnat.scripts.copy_project:main
+
 
 requirements:
   build:
-    - python
+    - python >=2.7,<=3.6
     - pip
+
   run:
-    - python
+    - python >=2.7.*,<=3.6.*
     - sphinx_rtd_theme >=0.1.9
     - progressbar2 >=3.11.0
     - isodate >=0.5.4
     - requests >=2.10.0
     - six >=1.9.0
 
-
 test:
-  commands:
-    - python -c "import xnat"
+  imports:
+    - xnat
+    - xnat.constants
+    - xnat.convert_xsd
+    - xnat.core
+    - xnat.datatypes
+    - xnat.exceptions
+    - xnat.inspect
+    - xnat.prearchive
+    - xnat.search
+    - xnat.services
+    - xnat.session
+    - xnat.users
+    - xnat.utils
+    - xnat.xnatbases
 
 about:
   home: https://bitbucket.org/bigr_erasmusmc/xnatpy/
