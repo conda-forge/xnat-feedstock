@@ -1,6 +1,6 @@
 {% set name = "xnat" %}
-{% set version = "0.3.18" %}
-{% set sha256 = "839dc8eb49951a3a71424b20e4ac322d4c9b0d70c822db10d9745f8835775d31" %}
+{% set version = "0.3.19" %}
+{% set sha256 = "d2a943dbfef39f1f8361cee0dc495aaeb36dc106e3cc070e439a5d3b793b8a91" %}
 
 package:
   name: {{ name|lower }}
@@ -42,13 +42,13 @@ test:
     - xnat.datatypes
     - xnat.exceptions
     - xnat.inspect
+    - xnat.mixin
     - xnat.prearchive
     - xnat.search
     - xnat.services
     - xnat.session
     - xnat.users
     - xnat.utils
-    - xnat.xnatbases
 
 about:
   home: https://bitbucket.org/bigr_erasmusmc/xnatpy/
