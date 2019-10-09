@@ -1,6 +1,6 @@
 {% set name = "xnat" %}
-{% set version = "0.3.19" %}
-{% set sha256 = "d2a943dbfef39f1f8361cee0dc495aaeb36dc106e3cc070e439a5d3b793b8a91" %}
+{% set version = "0.3.21" %}
+{% set sha256 = "56787ba342f33d4ee212aa6887145f9e7c81454ec03504e99014d7c21d2aee22" %}
 
 package:
   name: {{ name|lower }}
@@ -15,7 +15,7 @@ source:
 build:
   noarch: python
   number: 0
-  script: python -m pip install --no-deps --ignore-installed .
+  script: {{ PYTHON }} -m pip install . --no-deps -vv
   entry_points:
     - xnat_cp_project = xnat.scripts.copy_project:main
 
