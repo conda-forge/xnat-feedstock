@@ -14,7 +14,7 @@ source:
 
 build:
   noarch: python
-  number: 0
+  number: 1
   script: {{ PYTHON }} -m pip install . --no-deps -vv
   entry_points:
     - xnat_cp_project = xnat.scripts.copy_project:main
@@ -51,13 +51,13 @@ test:
     - xnat.utils
 
 about:
-  home: https://bitbucket.org/bigr_erasmusmc/xnatpy/
+  home: https://gitlab.com/radiology/infrastructure/xnatpy
   license: Apache-2.0
   license_family: Apache
   license_file: LICENSE
   summary: 'A new XNAT client that exposes XNAT objects/functions as python objects/functions.'
-  doc_url: http://xnat.readthedocs.io/
-  dev_url: https://bitbucket.org/bigr_erasmusmc/xnatpy/
+  doc_url: https://xnat.readthedocs.io/
+  dev_url: https://gitlab.com/radiology/infrastructure/xnatpy
 
 extra:
   recipe-maintainers:
