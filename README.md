@@ -1,7 +1,7 @@
 About xnat
 ==========
 
-Home: https://bitbucket.org/bigr_erasmusmc/xnatpy/
+Home: https://gitlab.com/radiology/infrastructure/xnatpy
 
 Package license: Apache-2.0
 
