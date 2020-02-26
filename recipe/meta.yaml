@@ -1,6 +1,6 @@
 {% set name = "xnat" %}
-{% set version = "0.3.21" %}
-{% set sha256 = "56787ba342f33d4ee212aa6887145f9e7c81454ec03504e99014d7c21d2aee22" %}
+{% set version = "0.3.22" %}
+{% set sha256 = "ea966d86c7b92fa669c2a120bbd4391f2f822c4e46af62da21d160526c143100" %}
 
 package:
   name: {{ name|lower }}
@@ -14,7 +14,7 @@ source:
 
 build:
   noarch: python
-  number: 1
+  number: 0
   script: {{ PYTHON }} -m pip install . --no-deps -vv
   entry_points:
     - xnat_cp_project = xnat.scripts.copy_project:main
@@ -55,7 +55,7 @@ about:
   license: Apache-2.0
   license_family: Apache
   license_file: LICENSE
-  summary: 'A new XNAT client that exposes XNAT objects/functions as python objects/functions.'
+  summary: A new XNAT client that exposes XNAT objects/functions as python objects/functions.
   doc_url: https://xnat.readthedocs.io/
   dev_url: https://gitlab.com/radiology/infrastructure/xnatpy
 
