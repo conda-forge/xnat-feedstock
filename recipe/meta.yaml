@@ -1,6 +1,6 @@
 {% set name = "xnat" %}
-{% set version = "0.3.25" %}
-{% set sha256 = "37b30a98a72fe4c7e636cd6a433da9fd6edfd7dee109f185849c78e9dc54effd" %}
+{% set version = "0.3.26" %}
+{% set sha256 = "56a2291b12fb8a007a6cbea0465eb065763ec0380bbe9f1490e574d7408ce562" %}
 
 package:
   name: {{ name|lower }}
@@ -21,7 +21,7 @@ build:
 
 
 requirements:
-  build:
+  host:
     - python
     - pip
 
