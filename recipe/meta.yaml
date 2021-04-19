@@ -22,12 +22,12 @@ build:
 
 
 requirements:
-  build:
-    - python
+  host:
+    - python >=2.7
     - pip
 
   run:
-    - python
+    - python >=2.7
     - sphinx_rtd_theme >=0.1.9
     - progressbar2 >=3.11.0
     - isodate >=0.5.4
