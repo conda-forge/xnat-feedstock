@@ -36,12 +36,21 @@ requirements:
 
 
 test:
-  requires:
-    - coverage
-    - pytest
-    - pytest-cov
-  commands:
-    - pytest --cov=xnat --pyargs xnat.tests
+  imports:
+    - xnat
+    - xnat.constants
+    - xnat.convert_xsd
+    - xnat.core
+    - xnat.datatypes
+    - xnat.exceptions
+    - xnat.inspect
+    - xnat.mixin
+    - xnat.prearchive
+    - xnat.search
+    - xnat.services
+    - xnat.session
+    - xnat.users
+    - xnat.utils
 
 
 about:
