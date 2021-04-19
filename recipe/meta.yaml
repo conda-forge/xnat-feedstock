@@ -1,6 +1,7 @@
 {% set name = "xnat" %}
-{% set version = "0.3.25" %}
-{% set sha256 = "37b30a98a72fe4c7e636cd6a433da9fd6edfd7dee109f185849c78e9dc54effd" %}
+{% set version = "0.3.26" %}
+{% set sha256 = "56a2291b12fb8a007a6cbea0465eb065763ec0380bbe9f1490e574d7408ce562" %}
+
 
 package:
   name: {{ name|lower }}
@@ -33,22 +34,14 @@ requirements:
     - requests >=2.10.0
     - six >=1.13.0
 
+
 test:
-  imports:
-    - xnat
-    - xnat.constants
-    - xnat.convert_xsd
-    - xnat.core
-    - xnat.datatypes
-    - xnat.exceptions
-    - xnat.inspect
-    - xnat.mixin
-    - xnat.prearchive
-    - xnat.search
-    - xnat.services
-    - xnat.session
-    - xnat.users
-    - xnat.utils
+  requires:
+    - pytest
+    - pytest-cov
+  commands:
+    - pytest --junitxml=junit-{envname}.xml --cov=xnat --cov-report=xml:coverage-{envname}.xml --cov-report=html:cov-html-{envname} --cov-report=term
+
 
 about:
   home: https://gitlab.com/radiology/infrastructure/xnatpy
