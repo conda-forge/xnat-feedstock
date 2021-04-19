@@ -1,6 +1,7 @@
 {% set name = "xnat" %}
-{% set version = "0.3.25" %}
-{% set sha256 = "37b30a98a72fe4c7e636cd6a433da9fd6edfd7dee109f185849c78e9dc54effd" %}
+{% set version = "0.3.26" %}
+{% set sha256 = "56a2291b12fb8a007a6cbea0465eb065763ec0380bbe9f1490e574d7408ce562" %}
+
 
 package:
   name: {{ name|lower }}
@@ -21,17 +22,18 @@ build:
 
 
 requirements:
-  build:
-    - python
+  host:
+    - python >=2.7
     - pip
 
   run:
-    - python
+    - python >=2.7
     - sphinx_rtd_theme >=0.1.9
     - progressbar2 >=3.11.0
     - isodate >=0.5.4
     - requests >=2.10.0
     - six >=1.13.0
+
 
 test:
   imports:
@@ -49,6 +51,7 @@ test:
     - xnat.session
     - xnat.users
     - xnat.utils
+
 
 about:
   home: https://gitlab.com/radiology/infrastructure/xnatpy
