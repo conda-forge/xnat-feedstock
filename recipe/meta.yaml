@@ -37,10 +37,11 @@ requirements:
 
 test:
   requires:
+    - coverage
     - pytest
     - pytest-cov
   commands:
-    - pytest --junitxml=junit-{envname}.xml --cov=xnat --cov-report=xml:coverage-{envname}.xml --cov-report=html:cov-html-{envname} --cov-report=term
+    - pytest --cov=xnat --pyargs xnat.tests
 
 
 about:
