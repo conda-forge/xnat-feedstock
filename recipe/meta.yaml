@@ -18,7 +18,9 @@ build:
   number: 0
   script: {{ PYTHON }} -m pip install . --no-deps -vv
   entry_points:
-    - xnat_cp_project = xnat.scripts.copy_project:main
+    - xnat_cp_project           = xnat.scripts.copy_project:main
+    - xnat_data_integrity-check = xnat.scripts.data_integrity_check:main
+    - xnat                      = xnat.client:cli
 
 
 requirements:
@@ -33,11 +35,16 @@ requirements:
     - isodate >=0.5.4
     - requests >=2.10.0
     - six >=1.13.0
+    - click >=7.0.0
 
 
+# The pypi source package does not contain
+# unit tests, so we can't run them through
+# conda build (last checked v0.4.0).
 test:
   imports:
     - xnat
+    - xnat.client
     - xnat.constants
     - xnat.convert_xsd
     - xnat.core
