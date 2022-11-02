@@ -29,7 +29,7 @@ requirements:
     - pip
 
   run:
-    - python >=2.7
+    - python >=2.7,<=3.10
     - sphinx_rtd_theme >=0.1.9
     - progressbar2 >=3.11.0
     - isodate >=0.5.4
