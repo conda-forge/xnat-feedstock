@@ -20,7 +20,7 @@ build:
   entry_points:
     - xnat_cp_project           = xnat.scripts.copy_project:main
     - xnat_data_integrity-check = xnat.scripts.data_integrity_check:main
-    - xnat                      = xnat.client:cli
+    - xnat                      = xnat.cli:cli
 
 
 requirements:
