@@ -1,6 +1,6 @@
 {% set name = "xnat" %}
-{% set version = "0.5.3" %}
-{% set sha256 = "53ae9bd59597ebc4ef8061dfd4e3b8a48fc9abda49f2b644b9042e6c0e4f64ab" %}
+{% set version = "0.6.0" %}
+{% set sha256 = "934ff97636ba74106f696ba3a3d724a087736fc3a49a19148d41503a2fa90a26" %}
 
 
 package:
@@ -20,7 +20,7 @@ build:
   entry_points:
     - xnat_cp_project           = xnat.scripts.copy_project:main
     - xnat_data_integrity-check = xnat.scripts.data_integrity_check:main
-    - xnat                      = xnat.client:cli
+    - xnat                      = xnat.cli:cli
 
 
 requirements:
@@ -30,13 +30,15 @@ requirements:
 
   run:
     - python >=3.7
-    - progressbar2 >=3.11.0
-    - importlib_metadata >=6.8.0
-    - isodate >=0.5.4
-    - requests >=2.10.0
-    - click >=7.0.0
-    - pydicom >=2.3.0
-    - python-dateutil =2
+    - click >=8
+    - click-option-group >=0.5.6
+    - importlib_metadata >=6.8
+    - isodate >=0.6
+    - progressbar2 >=4.2
+    - pydicom >=2.3
+    - python-dateutil >=2.8.2
+    - pyyaml >=6
+    - requests >=2.30
 
 
 # The pypi source package does not contain
@@ -45,20 +47,34 @@ requirements:
 test:
   imports:
     - xnat
-    - xnat.client
+    - xnat.cli
+    - xnat.cli.download
+    - xnat.cli.helpers
+    - xnat.cli.importing
+    - xnat.cli.listings
+    - xnat.cli.prearchive
+    - xnat.cli.rest
+    - xnat.cli.scripts
+    - xnat.cli.search
     - xnat.constants
     - xnat.convert_xsd
     - xnat.core
     - xnat.datatypes
     - xnat.exceptions
+    - xnat.header
     - xnat.inspect
+    - xnat.map
     - xnat.mixin
+    - xnat.plugins
     - xnat.prearchive
     - xnat.search
     - xnat.services
     - xnat.session
+    - xnat.type_hints
     - xnat.users
     - xnat.utils
+  commands:
+    - xnat --help
 
 
 about:
