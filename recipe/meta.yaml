@@ -74,8 +74,10 @@ test:
     - xnat.users
     - xnat.utils
   commands:
+    - pip check
     - xnat --help
-
+  requires:
+    - pip
 
 about:
   home: https://gitlab.com/radiology/infrastructure/xnatpy
