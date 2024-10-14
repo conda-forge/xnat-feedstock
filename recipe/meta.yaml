@@ -15,7 +15,7 @@ source:
 
 build:
   noarch: python
-  number: 0
+  number: 1
   script: {{ PYTHON }} -m pip install . --no-deps -vv
   entry_points:
     - xnat_cp_project           = xnat.scripts.copy_project:main
@@ -27,24 +27,27 @@ requirements:
   host:
     - python >=3.7
     - pip
+    - setuptools
 
   run:
     - python >=3.7
-    - click >=8
-    - click-option-group >=0.5.6
-    - importlib_metadata >=6.8
-    - isodate >=0.6
-    - progressbar2 >=4.2
-    - pydicom >=2.3
-    - python-dateutil >=2.8.2
-    - pyyaml >=6
-    - requests >=2.30
+    - click ~=8.0
+    - click-option-group ~=0.5.6
+    - importlib_metadata ~=6.8
+    - isodate ~=0.6
+    - progressbar2 ~=4.2
+    - pydicom ~=2.3
+    - python-dateutil ~=2.8.2
+    - pyyaml ~=6.0
+    - requests ~=2.30
 
 
 # The pypi source package does not contain
 # unit tests, so we can't run them through
 # conda build (last checked v0.4.0).
 test:
+  requires:
+    - pip
   imports:
     - xnat
     - xnat.cli
@@ -74,6 +77,7 @@ test:
     - xnat.users
     - xnat.utils
   commands:
+    - pip check
     - xnat --help
 
 
