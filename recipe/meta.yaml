@@ -10,12 +10,12 @@ package:
 
 source:
   fn: {{ name }}-{{ version }}.tar.gz
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
   sha256: {{ sha256 }}
 
 build:
   noarch: python
-  number: 1
+  number: 2
   script: {{ PYTHON }} -m pip install . --no-deps -vv
   entry_points:
     - xnat_cp_project           = xnat.scripts.copy_project:main
@@ -25,12 +25,12 @@ build:
 
 requirements:
   host:
-    - python >=3.7
+    - python {{ python_min }}
     - pip
     - setuptools
 
   run:
-    - python >=3.7
+    - python >={{ python_min }}
     - click ~=8.0
     - click-option-group ~=0.5.6
     - importlib_metadata ~=6.8
@@ -48,6 +48,7 @@ requirements:
 test:
   requires:
     - pip
+    - python {{ python_min }}
   imports:
     - xnat
     - xnat.cli
