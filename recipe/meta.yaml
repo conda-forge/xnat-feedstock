@@ -1,6 +1,6 @@
 {% set name = "xnat" %}
-{% set version = "0.6.2" %}
-{% set sha256 = "0d580323a267e8c70f7d2d961830be4c3874e82429e3a93871df5c923acbb6c8" %}
+{% set version = "0.7.0" %}
+{% set sha256 = "887e26d1052e24e3c16a5e3880f3bccd98997d24bc3f6273c309287fba13e0d4" %}
 
 
 package:
@@ -15,7 +15,7 @@ source:
 
 build:
   noarch: python
-  number: 2
+  number: 0
   script: {{ PYTHON }} -m pip install . --no-deps -vv
   entry_points:
     - xnat_cp_project           = xnat.scripts.copy_project:main
@@ -27,13 +27,14 @@ requirements:
   host:
     - python {{ python_min }}
     - pip
-    - setuptools
+    - hatchling
+    - versioningit
 
   run:
     - python >={{ python_min }}
     - click ~=8.0
     - click-option-group ~=0.5.6
-    - importlib_metadata ~=6.8
+    - importlib-metadata ~=6.8
     - isodate ~=0.6
     - progressbar2 ~=4.2
     - pydicom ~=2.3
