@@ -27,7 +27,8 @@ requirements:
   host:
     - python {{ python_min }}
     - pip
-    - setuptools
+    - hatchling
+    - versioningit
 
   run:
     - python >={{ python_min }}
