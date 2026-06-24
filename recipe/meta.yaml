@@ -1,6 +1,6 @@
 {% set name = "xnat" %}
-{% set version = "0.8.0" %}
-{% set sha256 = "f39a67453c731c7599f45641a37e57241241606d69bbf499eea7c5ac7f8dae70" %}
+{% set version = "0.8.1" %}
+{% set sha256 = "da153e7d4bb4e7c1becff79c9dc4097750f56f77bef4aa5b9c2c446fe54f59ad" %}
 
 
 package:
